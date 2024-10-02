@@ -1,0 +1,9 @@
+codrone-edu==1.9
+colorama==0.4.6
+joblib==1.4.2
+numpy==2.1.0
+pillow==10.4.0
+pyserial==3.5
+scikit-learn==1.5.1
+scipy==1.14.1
+threadpoolctl==3.5.0

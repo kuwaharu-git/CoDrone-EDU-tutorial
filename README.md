@@ -106,7 +106,7 @@ drone.close()
 
 他にもいくつかあるので[公式ドキュメントの飛行コマンド](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation/#flight-commands-movement)のところを参考に使えそうなものを探してみてください
 
-## 前に移動する例
+### 前に移動する例
 
 [03_move_forward.py](./tutorial/03_move_forward.py)
 
@@ -155,3 +155,56 @@ drone.close()
 前後左右、上下、回転も同じようにできます。ドキュメントを見ながら前進以外のコードも作成して実行してみてください。
 
 それぞれの方向の移動ができるようになったら今度は四角形に沿って移動、斜めに移動などをどのように飛行変数を設定すれば実現できるか考えて実行してみてください。
+
+## センサーの使用
+CoDroneには７つのセンサーが搭載されています
+* 加速度センサー
+
+    １秒間にどれくらいの速さかを検知
+* ジャイロセンサー
+
+    １秒間にどれくらい傾いたかを検知
+* 気圧センサー
+
+    ドローンの高さと気圧を測定
+* 正面距離センサー
+
+    ドローン前方にある障害物を検知
+* 底面距離センサー
+
+    ドローンと床までの距離を検知
+* カラーセンサー
+
+    ドローンの下にある表面の色の検知
+* オプティカルフローセンサー(光学フローセンサー)
+
+    ドローンの相対位置の検出
+
+
+**センサーから値を取得する関数は[こちら](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation/#sensors)**
+### 底面距離センサーを使用した例
+[04_bottom_range_sensor.py](./tutorial/04_bottom_range_sensor.py)
+```python
+from codrone_edu.drone import Drone
+import time
+
+"""
+ドローンの下部の距離センサーの値を取得する例
+"""
+
+drone = Drone()
+drone.pair()
+
+print(
+    "ドローンの下部の距離センサーの値を取得します。ドローンを持って上下に動かしてみてください。"
+)
+# ドローンの下部の距離センサーの値を1秒間隔で10回取得
+for i in range(10):
+    # ドローンの下部の距離センサーの値を取得
+    bottom_range = drone.get_bottom_range()
+    print(bottom_range)
+    time.sleep(1)
+
+drone.close()
+
+```

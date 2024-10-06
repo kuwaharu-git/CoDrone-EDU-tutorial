@@ -107,6 +107,9 @@ drone.close()
 他にもいくつかあるので[公式ドキュメントの飛行コマンド](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation/#flight-commands-movement)のところを参考に使えそうなものを探してみてください
 
 ## 前に移動する例
+
+[0303_move_forward.py](./tutorial/03_move_forward.py)
+
 ※前に移動するため、実行する際はドローン前方に、障害物、人がいないことを確認し、設置する向きに注意してください。
 
 ※飛行変数の値をいきなり大きすぎる値にすると速度がですぎて壁などに衝突する危険があるので初めは小さい値で徐々にあげてどれくらいの速度が出るのか試してみましょう。

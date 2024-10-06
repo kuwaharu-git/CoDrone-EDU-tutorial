@@ -14,7 +14,7 @@
 ---
 
 ## 公式ドキュメント
-* [Function-Documentation](https://docs.robolink.com/docs/CoDroneEDU/Python/Setup-and-Installation)
+* [Function-Documentation](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation)
 * [公式チュートリアル](https://learn.robolink.com/course/python-with-codrone-edu/)
 
 

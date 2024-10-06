@@ -84,3 +84,71 @@ drone.land()
 drone.close()
 
 ```
+
+## 移動
+### 移動する際の主な手順
+1. 飛行変数を設定する(移動の方向とパワーの設定)
+    * 前後: [set_pitch()](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation#set_pitch)
+    * 左右: [set_roll()](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation#set_roll)
+    * 上下: [set_throttle()](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation#set_throttle)
+    * 向きの変更: [set_yaw()](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation#set_yaw)
+2. 移動コマンドの実行(飛行変数を元に何秒動くかどうか)
+    * 移動コマンド: [move()](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation#move)
+
+    ※ 飛行変数はmove()実行後も設定した値は変わらないため、次に違う動きをしたい場合は、0に設定し直す必要がある
+
+この方法以外に、あらかじめどのように動くか設定されている関数があります
+
+例
+* ドローンを円状に飛行: [circle()](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation/#circle)
+* ドローンを四角形の形状で飛行: [square()](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation/#square)
+など
+
+他にもいくつかあるので[公式ドキュメントの飛行コマンド](https://docs.robolink.com/docs/CoDroneEDU/Python/Function-Documentation/#flight-commands-movement)のところを参考に使えそうなものを探してみてください
+
+## 前に移動する例
+※前に移動するため、実行する際はドローン前方に、障害物、人がいないことを確認し、設置する向きに注意してください。
+
+※飛行変数の値をいきなり大きすぎる値にすると速度がですぎて壁などに衝突する危険があるので初めは小さい値で徐々にあげてどれくらいの速度が出るのか試してみましょう。
+
+実行後、コンソールに今何をしているのかが表示されるのでそれも合わせて確認してみてください。
+
+```python
+from codrone_edu.drone import Drone
+
+
+"""
+ドローンを前進させる例
+"""
+
+drone = Drone()
+
+drone.pair()
+
+print
+drone.takeoff()
+print("1秒間ホバリング")
+drone.hover(1)
+# ドローンを前進させる
+print("ピッチ変数を30に設定します")
+drone.set_pitch(30)  # ピッチ変数の値を30に設定
+print("3秒間前進")
+drone.move(3)  # 3秒間前進
+print("1秒間ホバリング")
+drone.hover(1)
+print("再度3秒間前進")
+drone.move(3)  # 再度3秒間前進
+drone.hover(1)
+print("ピッチ変数を0に設定します")
+drone.set_pitch(0)  # ピッチ変数の値を0に設定
+print("3秒間ホバリング")
+drone.move(3)  # 今度は動かない(3秒間ホバリング)
+drone.land()
+
+drone.close()
+
+```
+
+前後左右、上下、回転も同じようにできます。ドキュメントを見ながら前進以外のコードも作成して実行してみてください。
+
+それぞれの方向の移動ができるようになったら今度は四角形に沿って移動、斜めに移動などをどのように飛行変数を設定すれば実現できるか考えて実行してみてください。

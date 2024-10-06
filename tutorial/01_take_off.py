@@ -1,6 +1,11 @@
 # CoDrone EDUライブラリからDroneクラスをインポート
 from codrone_edu.drone import Drone
 
+
+"""
+ドローンを離陸させる
+"""
+
 # ドローンのインスタンスを作成
 drone = Drone()
 

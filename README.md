@@ -108,7 +108,7 @@ drone.close()
 
 ## 前に移動する例
 
-[0303_move_forward.py](./tutorial/03_move_forward.py)
+[03_move_forward.py](./tutorial/03_move_forward.py)
 
 ※前に移動するため、実行する際はドローン前方に、障害物、人がいないことを確認し、設置する向きに注意してください。
 

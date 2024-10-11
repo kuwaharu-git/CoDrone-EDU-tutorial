@@ -9,7 +9,7 @@ drone = Drone()
 
 drone.pair()
 
-print
+print("離陸")
 drone.takeoff()
 print("1秒間ホバリング")
 drone.hover(1)
